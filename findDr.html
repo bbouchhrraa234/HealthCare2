@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Find Your Doctor</title>
+
+<link rel="stylesheet" href="findDr.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo"><i class="fa fa-heartbeat"></i> HealthCare</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <button class="login-btn">Login</button>
+</header>
+
+<!-- TITLE -->
+<section class="top">
+    <h1>Find Your Doctor</h1>
+    <p>Search by name, specialty or location to find the best doctor for you.</p>
+
+    <!-- SEARCH BAR -->
+    <div class="search-box">
+        <input type="text" placeholder="Search by name...">
+        <select>
+            <option>All Specialties</option>
+        </select>
+        <select>
+            <option>All Locations</option>
+        </select>
+        <button>Search</button>
+    </div>
+</section>
+
+<!-- MAIN -->
+<section class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Specialties</h3>
+
+        <ul>
+            <li class="active">All Specialties</li>
+            <li>Cardiology</li>
+            <li>Dermatology</li>
+            <li>Neurology</li>
+            <li>Dentist</li>
+            <li>Pediatrics</li>
+            <li>Orthopedics</li>
+            <li>Gynecology</li>
+        </ul>
+    </div>
+
+    <!-- DOCTORS -->
+    <div class="doctors">
+
+        <!-- CARD -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d">
+            <div>
+                <h4>Dr. Ahmed Ali</h4>
+                <p>Cardiologist</p>
+                <span>⭐⭐⭐⭐⭐ 4.8</span>
+                <button>View Profile</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg">
+            <div>
+                <h4>Dr. Sara Mohamed</h4>
+                <p>Dermatologist</p>
+                <span>⭐⭐⭐⭐⭐ 4.7</span>
+                <button>View Profile</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+            <div>
+                <h4>Dr. Omar Hassan</h4>
+                <p>Dentist</p>
+                <span>⭐⭐⭐⭐⭐ 4.6</span>
+                <button>View Profile</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6">
+            <div>
+                <h4>Dr. Lina Khaled</h4>
+                <p>Neurologist</p>
+                <span>⭐⭐⭐⭐⭐ 4.9</span>
+                <button>View Profile</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2025 HealthCare. All Rights Reserved.</p>
+
+    <div class="socials">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin-in"></i>
+    </div>
+</footer>
+<script src="findDr.js"></script>
+</body>
+</html>

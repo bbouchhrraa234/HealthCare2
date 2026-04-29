@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Doctor Profile</title>
+
+<link rel="stylesheet" href="drprofile.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo"><i class="fa fa-heartbeat"></i> HealthCare</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <button class="login-btn">Login</button>
+</header>
+
+<!-- MAIN -->
+<section class="container">
+
+    <a href="#" class="back">← Back to Doctors </a>
+
+    <div class="profile">
+
+        <!-- LEFT -->
+        <div class="left">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d" class="doctor-img">
+
+            <div class="info">
+                <h2>Dr. Ahmed Ali</h2>
+                <p class="specialty">Cardiologist</p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ <span>4.8 (120 reviews)</span>
+                </div>
+
+                <div class="stats">
+                    <div><strong>10+</strong><br>Years Experience</div>
+                    <div><strong>500+</strong><br>Patients</div>
+                    <div><strong>Riyadh</strong><br>Location</div>
+                </div>
+
+                <h3>About Doctor</h3>
+                <p>
+                    Dr. Ahmed Ali is a highly experienced cardiologist with over 10 years of experience 
+                    in treating heart diseases and specializes in interventional cardiology.
+                </p>
+
+                <h3>Education</h3>
+                <ul>
+                    <li>MD in Cardiology - King Saud University</li>
+                    <li>Fellowship - Mayo Clinic</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+            <h3>Book Appointment</h3>
+
+            <label>Select Date</label>
+            <input type="date">
+
+            <label>Available Time Slots</label>
+
+            <div class="times">
+                <button>09:00 AM</button>
+                <button>10:00 AM</button>
+                <button>11:00 AM</button>
+                <button>01:00 PM</button>
+                <button>02:00 PM</button>
+                <button>03:00 PM</button>
+            </div>
+
+            <button class="book-btn">Continue Booking</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2025 HealthCare. All Rights Reserved.</p>
+
+    <div class="socials">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin-in"></i>
+    </div>
+</footer>
+
+<script>
+const buttons = document.querySelectorAll(".times button");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.25s ease;
+}
+
+body {
+    background: #eef3f2;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 92%;
+    margin: 20px auto;
+    background: linear-gradient(to right, #0f766e, #14b8a6);
+    border-radius: 14px;
+    padding: 14px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.navbar nav a {
+    position: relative;
+    color: white;
+    margin: 0 18px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* SMOOTH UNDERLINE */
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: white;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+.login-btn {
+    background: white;
+    color: #0f766e;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* CONTAINER */
+.container {
+    padding: 40px 60px;
+}
+
+.back {
+    text-decoration: none;
+    color: #1f2937; /* darker text */
+    font-size: 16px;
+    font-weight: 600; /* makes it bold */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 25px;
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.back:hover {
+    color: #0f766e;
+    transform: translateX(-4px);
+}
+
+/* PROFILE */
+.profile {
+    display: flex;
+    gap: 40px;
+}
+
+/* LEFT CARD */
+.left {
+    flex: 2;
+    display: flex;
+    gap: 25px;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.doctor-img {
+    width: 220px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.specialty {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.rating {
+    color: #f4b400;
+    margin-bottom: 15px;
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+}
+
+.stats strong {
+    color: #0f766e;
+}
+
+/* RIGHT CARD */
+.right {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.right input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* TIME SLOTS */
+.times {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.times button {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #0f766e;
+    background: #f9fdfc;
+    cursor: pointer;
+}
+
+.times button:hover {
+    background: #0f766e;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.times button.active {
+    background: #0f766e;
+    color: white;
+}
+
+/* BOOK BUTTON */
+.book-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: linear-gradient(to right, #0f766e, #14b8a6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.book-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+    width: 92%;
+    margin: 40px auto 20px;
+    background: #0f766e;
+    color: white;
+    border-radius: 10px;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socials i {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.socials i:hover {
+    transform: scale(1.2);
+}
