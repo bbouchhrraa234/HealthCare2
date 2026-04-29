@@ -1,7 +1,7 @@
 // ==========================
 // SIGN UP
 // ==========================
-const signupForm = document.getElementById("signupForm");
+const signupForm = signupForm.addEventListener("submit", async function(e) {;
 
 if (signupForm) {
     const msg = signupForm.querySelector(".msg");
