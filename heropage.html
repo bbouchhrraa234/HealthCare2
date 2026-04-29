@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthCare — Book Doctors Easily</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="heropage.css">
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<header class="navbar">
+  <a class="nav-logo" href="heropage.html">
+    <i class="fa-solid fa-heart-pulse"></i> HealthCare
+  </a>
+  <ul class="nav-links">
+    <li><a href="heropage.html" class="active">Home</a></li>
+    <li><a href="doctors.html">Doctors</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-auth">
+    <a href="login.html" class="nav-btn-login"><i class="fa-regular fa-user"></i> Login</a>
+    <a href="profile.html" class="nav-profile-btn">
+      <div class="avatar-circle">U</div>
+      <span class="nav-uname">Profile</span>
+    </a>
+  </div>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile drawer -->
+<div class="mobile-nav-overlay"></div>
+<div class="mobile-nav-drawer">
+  <button class="drawer-close"><i class="fas fa-times"></i></button>
+  <a href="heropage.html" class="active">Home</a>
+  <a href="doctors.html">Doctors</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <div class="drawer-divider"></div>
+  <a href="login.html" id="drawer-login">Login</a>
+  <a href="profile.html" id="drawer-profile" style="display:none">My Profile</a>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-left reveal">
+    <p class="tag"><i class="fa-regular fa-heart"></i> Your Health, Our Priority</p>
+    <h1>Book Your Doctor <br>Appointment <span>Easily</span></h1>
+    <p class="desc">Find trusted doctors, book appointments instantly, and get the best healthcare near you.</p>
+
+    <div class="features">
+      <div class="feature reveal">
+        <i class="fa-solid fa-calendar-check"></i>
+        <div><h4>Easy Booking</h4><p>Book in minutes</p></div>
+      </div>
+      <div class="feature reveal" style="transition-delay:0.08s">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div><h4>Trusted Doctors</h4><p>Verified experts</p></div>
+      </div>
+      <div class="feature reveal" style="transition-delay:0.16s">
+        <i class="fa-solid fa-location-dot"></i>
+        <div><h4>Near You</h4><p>Find nearby</p></div>
+      </div>
+    </div>
+
+    <div class="search-box">
+      <select id="specialtySelect">
+        <option value="">Specialty</option>
+        <option value="cardiology">Cardiology</option>
+        <option value="dermatology">Dermatology</option>
+        <option value="dentistry">Dentistry</option>
+        <option value="neurology">Neurology</option>
+        <option value="orthopedics">Orthopedics</option>
+        <option value="pediatrics">Pediatrics</option>
+        <option value="ophthalmology">Ophthalmology</option>
+      </select>
+      <select id="locationSelect">
+        <option value="">Location</option>
+        <option>Algiers</option>
+        <option>Oran</option>
+        <option>Constantine</option>
+        <option>Annaba</option>
+        <option>Blida</option>
+      </select>
+      <input type="date" id="dateInput">
+      <button class="main-btn" id="searchBtn"><i class="fa fa-search"></i> Find Doctors</button>
+    </div>
+  </div>
+
+  <div class="hero-right reveal" style="transition-delay:0.2s">
+    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Doctor">
+    <div class="float-card card-specialists">👨‍⚕️ <strong>500+</strong> Specialists</div>
+    <div class="float-card card-rating">⭐ <strong>4.8</strong> Rating</div>
+    <div class="float-card card-secure">🔒 <strong>100%</strong> Secure</div>
+  </div>
+</section>
+
+<!-- ═══════════════ STATS ═══════════════ -->
+<section class="stats reveal">
+  <div class="stat-item"><span class="stat-num">150+</span><span class="stat-label">Doctors</span></div>
+  <div class="stat-item"><span class="stat-num">15K+</span><span class="stat-label">Appointments</span></div>
+  <div class="stat-item"><span class="stat-num">10K+</span><span class="stat-label">Patients</span></div>
+  <div class="stat-item"><span class="stat-num">25+</span><span class="stat-label">Cities</span></div>
+</section>
+
+<!-- ═══════════════ SPECIALTIES ═══════════════ -->
+<section class="specialty-section">
+  <div class="specialty-header reveal">
+    <span class="specialty-badge">BROWSE BY CATEGORY</span>
+    <h2>Find Doctors by <span>Specialty</span></h2>
+    <p>Choose from our wide range of medical specialties and connect with top-rated specialists near you.</p>
+  </div>
+
+  <div class="specialty-grid">
+    <div class="spec-card active reveal" data-specialty="all">
+      <div class="spec-icon-wrap"><span class="spec-emoji">🏥</span></div>
+      <h4>All</h4><p>500+ doctors</p>
+    </div>
+    <div class="spec-card reveal" data-specialty="cardiology" style="transition-delay:0.05s">
+      <div class="spec-icon-wrap"><span class="spec-emoji">❤️</span></div>
+      <h4>Cardiology</h4><p>48 doctors</p>
+    </div>
+    <div class="spec-card reveal" data-specialty="dermatology" style="transition-delay:0.1s">
+      <div class="spec-icon-wrap"><span class="spec-emoji">🧴</span></div>
+      <h4>Dermatology</h4><p>36 doctors</p>
+    </div>
+    <div class="spec-card reveal" data-specialty="dentistry" style="transition-delay:0.15s">
+      <div class="spec-icon-wrap"><span class="spec-emoji">🦷</span></div>
+      <h4>Dentistry</h4><p>55 doctors</p>
+    </div>
+    <div class="spec-card reveal" data-specialty="neurology" style="transition-delay:0.2s">
+      <div class="spec-icon-wrap"><span class="spec-emoji">🧠</span></div>
+      <h4>Neurology</h4><p>29 doctors</p>
+    </div>
+    <div class="spec-card reveal" data-specialty="orthopedics" style="transition-delay:0.25s">
+      <div class="spec-icon-wrap"><span class="spec-emoji">🦴</span></div>
+      <h4>Orthopedics</h4><p>40 doctors</p>
+    </div>
+    <div class="spec-card reveal" data-specialty="pediatrics" style="transition-delay:0.3s">
+      <div class="spec-icon-wrap"><span class="spec-emoji">👶</span></div>
+      <h4>Pediatrics</h4><p>33 doctors</p>
+    </div>
+    <div class="spec-card reveal" data-specialty="ophthalmology" style="transition-delay:0.35s">
+      <div class="spec-icon-wrap"><span class="spec-emoji">👁️</span></div>
+      <h4>Ophthalmology</h4><p>22 doctors</p>
+    </div>
+  </div>
+
+  <div class="specialty-cta reveal">
+    <a href="doctors.html" class="main-btn"><i class="fa fa-th-large"></i> View All Specialties</a>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="brand-logo"><i class="fa-solid fa-heart-pulse"></i> HealthCare</div>
+      <p>Providing trusted healthcare services and connecting patients with the best doctors near them.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="heropage.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="doctors.html">Find a Doctor</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="#">Telemedicine</a></li>
+        <li><a href="#">Health Records</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Algiers, Algeria</span></div>
+      <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+213 123 456 789</span></div>
+      <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>support@healthcare.com</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom" style="width:100%;max-width:100%;">
+    <p>© 2026 HealthCare. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script src="heropage.js"></script>
+</body>
+</html>

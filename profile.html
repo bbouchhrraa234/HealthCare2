@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — HealthCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a class="nav-logo" href="heropage.html"><i class="fa-solid fa-heart-pulse"></i> HealthCare</a>
+  <ul class="nav-links">
+    <li><a href="heropage.html">Home</a></li>
+    <li><a href="doctors.html">Doctors</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-auth">
+    <a href="login.html" class="nav-btn-login"><i class="fa-regular fa-user"></i> Login</a>
+    <a href="profile.html" class="nav-profile-btn">
+      <div class="avatar-circle">U</div>
+      <span class="nav-uname">Profile</span>
+    </a>
+  </div>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-nav-overlay"></div>
+<div class="mobile-nav-drawer">
+  <button class="drawer-close"><i class="fas fa-times"></i></button>
+  <a href="heropage.html">Home</a>
+  <a href="doctors.html">Doctors</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <div class="drawer-divider"></div>
+  <a href="profile.html" class="active">My Profile</a>
+  <a href="appointments.html">Appointments</a>
+</div>
+
+<!-- MAIN -->
+<main class="profile-main">
+  <div class="profile-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="profile-sidebar">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" id="sidebarAvatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-username" id="sidebarName">Loading…</div>
+          <div class="sidebar-email" id="sidebarEmail">—</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-item active" data-section="profile">
+          <i class="fas fa-user"></i> Profile Info
+        </a>
+        <a href="#" class="sidebar-item" data-section="password">
+          <i class="fas fa-lock"></i> Change Password
+        </a>
+        <a href="appointments.html" class="sidebar-item">
+          <i class="fas fa-calendar-check"></i> Appointments
+        </a>
+        <a href="#" class="sidebar-item" data-section="notifications" id="notifSidebarBtn">
+          <i class="fas fa-bell"></i> Notifications
+          <span class="notif-badge" id="notifBadge">3</span>
+        </a>
+        <a href="#" class="sidebar-item sidebar-logout" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i> Log Out
+        </a>
+      </nav>
+    </aside>
+
+    <!-- CONTENT PANELS -->
+    <div class="profile-content">
+
+      <!-- Profile Info -->
+      <section class="content-panel active" id="panel-profile">
+        <div class="panel-header">
+          <h2>Profile Information</h2>
+          <p>Update your personal details</p>
+        </div>
+
+        <div class="avatar-row">
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar" id="profileAvatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <button class="change-photo-btn" id="changePhotoBtn">
+              <i class="fas fa-camera"></i>
+            </button>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" style="display:none">
+          <div>
+            <div class="avatar-name" id="avatarName">—</div>
+            <div class="avatar-member">Member since 2026</div>
+          </div>
+        </div>
+
+        <form id="profileForm" class="profile-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input id="fieldName" type="text" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input id="fieldEmail" type="email" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input id="fieldPhone" type="tel" placeholder="+213 ...">
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input id="fieldLocation" type="text" placeholder="City, Country">
+            </div>
+          </div>
+          <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+      </section>
+
+      <!-- Change Password -->
+      <section class="content-panel" id="panel-password">
+        <div class="panel-header">
+          <h2>Change Password</h2>
+          <p>Keep your account secure</p>
+        </div>
+        <div class="profile-form" style="max-width:420px;">
+          <div class="form-group" style="margin-bottom:16px;">
+            <label>Current Password</label>
+            <div class="pw-input-wrap">
+              <input id="oldPw" type="password" placeholder="Current password">
+              <i class="fas fa-eye toggle-pw"></i>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:16px;">
+            <label>New Password</label>
+            <div class="pw-input-wrap">
+              <input id="newPw" type="password" placeholder="New password">
+              <i class="fas fa-eye toggle-pw"></i>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:24px;">
+            <label>Confirm New Password</label>
+            <div class="pw-input-wrap">
+              <input id="confirmPw" type="password" placeholder="Confirm new password">
+              <i class="fas fa-eye toggle-pw"></i>
+            </div>
+          </div>
+          <button class="save-btn" id="savePwBtn">Update Password</button>
+          <p class="pw-msg" id="pwMsg"></p>
+        </div>
+      </section>
+
+      <!-- Notifications -->
+      <section class="content-panel" id="panel-notifications">
+        <div class="panel-header">
+          <h2>Notifications</h2>
+          <p>Stay up to date</p>
+        </div>
+        <div id="notifList" class="notif-list"></div>
+        <button class="clear-notif-btn" id="clearNotifBtn">Clear All</button>
+      </section>
+
+    </div><!-- /profile-content -->
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="brand-logo"><i class="fa-solid fa-heart-pulse"></i> HealthCare</div>
+      <p>Connecting patients with trusted healthcare professionals.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>My Account</h4>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Algiers, Algeria</span></div>
+      <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+213 123 456 789</span></div>
+      <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>support@healthcare.com</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom" style="width:100%;max-width:100%;">
+    <p>© 2026 HealthCare. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Appointments — HealthCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="appointments.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a class="nav-logo" href="heropage.html"><i class="fa-solid fa-heart-pulse"></i> HealthCare</a>
+  <ul class="nav-links">
+    <li><a href="heropage.html">Home</a></li>
+    <li><a href="doctors.html">Doctors</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-auth">
+    <a href="login.html" class="nav-btn-login"><i class="fa-regular fa-user"></i> Login</a>
+    <a href="profile.html" class="nav-profile-btn">
+      <div class="avatar-circle">U</div>
+      <span class="nav-uname">Profile</span>
+    </a>
+  </div>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-nav-overlay"></div>
+<div class="mobile-nav-drawer">
+  <button class="drawer-close"><i class="fas fa-times"></i></button>
+  <a href="heropage.html">Home</a>
+  <a href="doctors.html">Doctors</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <div class="drawer-divider"></div>
+  <a href="profile.html" id="drawer-profile">My Profile</a>
+  <a href="appointments.html" class="active">Appointments</a>
+</div>
+
+<main>
+  <div class="appt-page">
+    <!-- HEADER -->
+    <div class="appt-header reveal">
+      <h1>My Appointments</h1>
+      <p>View and manage all your upcoming and past appointments</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-bar reveal">
+      <button class="tab-btn active" data-tab="upcoming">
+        <i class="fas fa-calendar-check"></i> Upcoming
+      </button>
+      <button class="tab-btn" data-tab="past">
+        <i class="fas fa-history"></i> Past
+      </button>
+    </div>
+
+    <!-- UPCOMING -->
+    <div class="appt-list" id="tab-upcoming">
+      <div class="appt-card reveal">
+        <div class="appt-doc-avatar" style="background:#ccfbf1;color:#0f766e">AA</div>
+        <div class="appt-info">
+          <div class="appt-doc-name">Dr. Ahmed Benali</div>
+          <div class="appt-specialty">Cardiologist</div>
+          <div class="appt-meta">
+            <span><i class="far fa-calendar"></i> 15 May 2026</span>
+            <span><i class="far fa-clock"></i> 10:00 AM</span>
+            <span><i class="fas fa-map-marker-alt"></i> Algiers</span>
+          </div>
+        </div>
+        <span class="appt-badge badge-confirmed">Confirmed</span>
+        <button class="appt-cancel-btn" onclick="cancelAppt(this)">Cancel</button>
+      </div>
+
+      <div class="appt-card reveal" style="transition-delay:0.07s">
+        <div class="appt-doc-avatar" style="background:#fce7f3;color:#be185d">SM</div>
+        <div class="appt-info">
+          <div class="appt-doc-name">Dr. Sara Mansouri</div>
+          <div class="appt-specialty">Dermatologist</div>
+          <div class="appt-meta">
+            <span><i class="far fa-calendar"></i> 18 May 2026</span>
+            <span><i class="far fa-clock"></i> 02:00 PM</span>
+            <span><i class="fas fa-map-marker-alt"></i> Oran</span>
+          </div>
+        </div>
+        <span class="appt-badge badge-pending">Pending</span>
+        <button class="appt-cancel-btn" onclick="cancelAppt(this)">Cancel</button>
+      </div>
+
+      <div class="appt-card reveal" style="transition-delay:0.14s">
+        <div class="appt-doc-avatar" style="background:#e0f2fe;color:#0369a1">OK</div>
+        <div class="appt-info">
+          <div class="appt-doc-name">Dr. Omar Khelil</div>
+          <div class="appt-specialty">Dentist</div>
+          <div class="appt-meta">
+            <span><i class="far fa-calendar"></i> 26 May 2026</span>
+            <span><i class="far fa-clock"></i> 11:00 AM</span>
+            <span><i class="fas fa-map-marker-alt"></i> Algiers</span>
+          </div>
+        </div>
+        <span class="appt-badge badge-confirmed">Confirmed</span>
+        <button class="appt-cancel-btn" onclick="cancelAppt(this)">Cancel</button>
+      </div>
+    </div>
+
+    <!-- PAST -->
+    <div class="appt-list" id="tab-past" style="display:none">
+      <div class="appt-card appt-past reveal">
+        <div class="appt-doc-avatar" style="background:#f3e8ff;color:#7c3aed">FH</div>
+        <div class="appt-info">
+          <div class="appt-doc-name">Dr. Fatima Hadj</div>
+          <div class="appt-specialty">Neurologist</div>
+          <div class="appt-meta">
+            <span><i class="far fa-calendar"></i> 10 Apr 2026</span>
+            <span><i class="far fa-clock"></i> 09:30 AM</span>
+            <span><i class="fas fa-map-marker-alt"></i> Constantine</span>
+          </div>
+        </div>
+        <span class="appt-badge badge-completed">Completed</span>
+        <button class="appt-rebook-btn" onclick="rebookAppt('Dr. Fatima Hadj')">Rebook</button>
+      </div>
+    </div>
+
+    <!-- HELP -->
+    <div class="help-bar reveal">
+      <i class="fas fa-headset"></i>
+      Need help? Call us: <a href="tel:+213123456789">+213 123 456 789</a>
+    </div>
+
+    <!-- BOOK NEW -->
+    <div class="book-new reveal">
+      <a href="doctors.html" class="book-new-btn">
+        <i class="fas fa-plus"></i> Book New Appointment
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="brand-logo"><i class="fa-solid fa-heart-pulse"></i> HealthCare</div>
+      <p>Connecting patients with trusted healthcare professionals.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="heropage.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>My Account</h4>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Algiers, Algeria</span></div>
+      <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+213 123 456 789</span></div>
+      <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>support@healthcare.com</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom" style="width:100%;max-width:100%;">
+    <p>© 2026 HealthCare. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script src="appointments.js"></script>
+</body>
+</html>

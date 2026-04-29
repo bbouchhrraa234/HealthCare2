@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Background */
+body {
+    height: 100vh;
+    background: linear-gradient(to right, #0f766e, #14b8a6);
+}
+
+/* Navbar */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #ccfbf1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.login-btn {
+    background: white;
+    color: #0f766e;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* Container */
+.signup-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Box */
+.signup-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.signup-box h2 {
+    color: #0f766e;
+    margin-bottom: 10px;
+}
+
+.signup-box p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-box {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+    position: relative;
+}
+
+.input-box i {
+    color: #14b8a6;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.input-box input {
+    
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    position: relative;
+}
+
+/* Hover effect */
+.input-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #14b8a6;
+}
+
+/* Active (focus) */
+.input-box:focus-within {
+    border-color: #0f766e;
+    box-shadow: 0 0 8px rgba(20,184,166,0.4);
+    transform: scale(1.02);
+}
+
+.input-box:focus-within i {
+    color: #0f766e;
+    transform: scale(1.2);
+}
+
+/* Bottom line animation */
+.input-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #14b8a6;
+    transition: 0.3s;
+}
+
+.input-box:focus-within::after {
+    width: 100%;
+}
+
+/* Button */
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #14b8a6;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background: #0f766e;
+}
+
+/* Message */
+.msg {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Link */
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #14b8a6;
+    text-decoration: none;
+}
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+/* eye icon */
+.toggle-pass {
+    cursor: pointer;
+    right: 10px;
+    color: #999;
+    transition: 0.3s;
+    position: absolute;
+}
+
+.toggle-pass:hover {
+    color: #14b8a6;
+}

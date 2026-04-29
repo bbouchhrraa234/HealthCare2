@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — HealthCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a class="nav-logo" href="heropage.html"><i class="fa-solid fa-heart-pulse"></i> HealthCare</a>
+  <ul class="nav-links">
+    <li><a href="heropage.html">Home</a></li>
+    <li><a href="doctors.html">Doctors</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-auth">
+    <a href="login.html" class="nav-btn-login"><i class="fa-regular fa-user"></i> Login</a>
+    <a href="profile.html" class="nav-profile-btn">
+      <div class="avatar-circle">U</div>
+      <span class="nav-uname">Profile</span>
+    </a>
+  </div>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-nav-overlay"></div>
+<div class="mobile-nav-drawer">
+  <button class="drawer-close"><i class="fas fa-times"></i></button>
+  <a href="heropage.html">Home</a>
+  <a href="doctors.html">Doctors</a>
+  <a href="about.html" class="active">About Us</a>
+  <a href="contact.html">Contact</a>
+  <div class="drawer-divider"></div>
+  <a href="login.html" id="drawer-login">Login</a>
+  <a href="profile.html" id="drawer-profile" style="display:none">My Profile</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="about-hero-inner reveal">
+      <span class="about-badge">WHO WE ARE</span>
+      <h1>Redefining Healthcare <br><span>Accessibility</span></h1>
+      <p>We connect patients with trusted specialists — making quality healthcare simple, fast, and available to everyone.</p>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="who-section">
+    <div class="who-text reveal">
+      <span class="section-label">OUR STORY</span>
+      <h2>Who We Are</h2>
+      <p>HealthCare is an online platform built to bridge the gap between patients and qualified medical professionals. We believe that finding a trusted doctor should be as easy as a few clicks — no waiting rooms, no confusion.</p>
+      <p>Our network spans over 25 cities, with more than 500 verified specialists across every major medical field, all vetted for quality and professionalism.</p>
+      <div class="who-stats">
+        <div><strong>500+</strong><span>Doctors</span></div>
+        <div><strong>10K+</strong><span>Patients</span></div>
+        <div><strong>25+</strong><span>Cities</span></div>
+        <div><strong>4.8★</strong><span>Rating</span></div>
+      </div>
+    </div>
+    <div class="who-image reveal" style="transition-delay:0.15s">
+      <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=700&q=80" alt="Healthcare">
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="values-header reveal">
+      <span class="section-label">WHAT DRIVES US</span>
+      <h2>Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>Deliver high-quality healthcare services to everyone, anywhere — removing barriers to access.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay:0.1s">
+        <div class="value-icon"><i class="fas fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>Be the leading platform for healthcare booking, trusted by millions across the region.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay:0.2s">
+        <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+        <h3>Our Values</h3>
+        <p>Trust, transparency, and patient satisfaction are the pillars everything we do is built on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="team-header reveal">
+      <span class="section-label">THE TEAM</span>
+      <h2>Meet Our Leadership</h2>
+      <p>Passionate people dedicated to transforming healthcare.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:#ccfbf1;color:#0f766e">AK</div>
+        <h4>Dr. Amina Khelil</h4>
+        <p>Chief Medical Officer</p>
+      </div>
+      <div class="team-card reveal" style="transition-delay:0.08s">
+        <div class="team-avatar" style="background:#dbeafe;color:#1d4ed8">YB</div>
+        <h4>Yacine Belouizdad</h4>
+        <p>CEO & Co-Founder</p>
+      </div>
+      <div class="team-card reveal" style="transition-delay:0.16s">
+        <div class="team-avatar" style="background:#fce7f3;color:#be185d">SM</div>
+        <h4>Sara Mansouri</h4>
+        <p>Head of Product</p>
+      </div>
+      <div class="team-card reveal" style="transition-delay:0.24s">
+        <div class="team-avatar" style="background:#fef3c7;color:#92400e">KD</div>
+        <h4>Karim Djaballah</h4>
+        <p>Lead Engineer</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="brand-logo"><i class="fa-solid fa-heart-pulse"></i> HealthCare</div>
+      <p>Providing trusted healthcare services and connecting patients with the best doctors near them.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="doctors.html">Find a Doctor</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Algiers, Algeria</span></div>
+      <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+213 123 456 789</span></div>
+      <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>support@healthcare.com</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom" style="width:100%;max-width:100%;">
+    <p>© 2026 HealthCare. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
