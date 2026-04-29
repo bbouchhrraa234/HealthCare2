@@ -51,16 +51,34 @@ if (signupForm) {
             return;
         }
 
-        // save user
-        localStorage.setItem("userName", name);
-        localStorage.setItem("userEmail", email);
-        localStorage.setItem("userPassword", password);
-
+        // Register via API
+try {
+    const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password })
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+        // Save token and user data
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('hc_user', JSON.stringify(data.user));
+        
         showMessage(msg, "Account created successfully ✔", "green");
-
+        
         setTimeout(() => {
             window.location.href = "profile.html";
         }, 800);
+    } else {
+        showMessage(msg, data.message || "Registration failed ❌", "red");
+        shake(signupForm);
+    }
+} catch (error) {
+    showMessage(msg, "Network error ❌", "red");
+    shake(signupForm);
+    }
     });
 }
 
@@ -91,37 +109,52 @@ if (loginForm) {
         });
     }
 
-    btn.addEventListener("click", () => {
-        const inputs = loginForm.querySelectorAll("input");
+    btn.addEventListener("click", async () => {
+    const inputs = loginForm.querySelectorAll("input");
 
-        const email = inputs[0].value.trim();
-        const password = inputs[1].value.trim();
+    const email = inputs[0].value.trim();
+    const password = inputs[1].value.trim();
 
-        const savedEmail = localStorage.getItem("userEmail");
-        const savedPassword = localStorage.getItem("userPassword");
+    if (!email || !password) {
+        showMessage(msg, "Fill all fields ❌", "red");
+        loginForm.appendChild(msg);
+        shake(loginForm);
+        return;
+    }
 
-        if (!email || !password) {
-            showMessage(msg, "Fill all fields ❌", "red");
-            loginForm.appendChild(msg);
-            shake(loginForm);
-            return;
-        }
-
-      /* */ if (email === savedEmail && password === savedPassword) {
+    // Login via API
+    try {
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            // Save token and user data
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('hc_user', JSON.stringify(data.user));
+            
             showMessage(msg, "Login successful ✔", "green");
             loginForm.appendChild(msg);
-
+            
             setTimeout(() => {
                 window.location.href = "profile.html";
             }, 700);
-
         } else {
-            showMessage(msg, "Wrong email or password ❌", "red");
+            showMessage(msg, data.message || "Wrong email or password ❌", "red");
             loginForm.appendChild(msg);
             shake(loginForm);
-            shake(forgotForm)
         }
-    });
+    } catch (error) {
+        console.error("Login error:", error);
+        showMessage(msg, "Network error ❌", "red");
+        loginForm.appendChild(msg);
+        shake(loginForm);
+    }
+});
 
   
 }
@@ -136,27 +169,40 @@ if (forgotForm) {
     const msg = document.createElement("p");
     msg.classList.add("msg");
 
-    btn.addEventListener("click", () => {
-        const email = forgotForm.querySelector("input").value.trim();
-        const savedEmail = localStorage.getItem("userEmail");
-        const savedPassword = localStorage.getItem("userPassword");
+    btn.addEventListener("click", async () => {
+    const email = forgotForm.querySelector("input").value.trim();
 
-        if (!email) {
-            showMessage(msg, "Enter your email ❌", "red");
-            forgotForm.appendChild(msg);
-            shake(forgotForm);
-            return;
-        }
-
-        if (email === savedEmail) {
-            showMessage(msg, "Your password is: " + savedPassword, "green");
-        } else {
-            showMessage(msg, "Email not found ❌", "red");
-            shake(forgotForm);
-        }
-
+    if (!email) {
+        showMessage(msg, "Enter your email ❌", "red");
         forgotForm.appendChild(msg);
-    });
+        shake(forgotForm);
+        return;
+    }
+
+    // Forgot password via API
+    try {
+        const response = await fetch('/api/auth/forgot-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            showMessage(msg, "Reset link sent to your email 📧", "green");
+        } else {
+            showMessage(msg, data.message || "Email not found ❌", "red");
+            shake(forgotForm);
+        }
+    } catch (error) {
+        console.error("Forgot password error:", error);
+        showMessage(msg, "Network error ❌", "red");
+        shake(forgotForm);
+    }
+
+    forgotForm.appendChild(msg);
+});
 }
 
 // ==========================
