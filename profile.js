@@ -14,27 +14,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ── POPULATE USER INFO ── */
-  function loadUserData() {
-    const u = getUser();
-    if (!u) return;
+  async function loadUserData() {
+  const token = localStorage.getItem("token");
 
-    // Sidebar
-    document.getElementById("sidebarName").textContent = u.name || "User";
-    document.getElementById("sidebarEmail").textContent = u.email || "";
-
-    // Form
-    if (document.getElementById("fieldName")) document.getElementById("fieldName").value = u.name || "";
-    if (document.getElementById("fieldEmail")) document.getElementById("fieldEmail").value = u.email || "";
-    if (document.getElementById("fieldPhone")) document.getElementById("fieldPhone").value = u.phone || "";
-    if (document.getElementById("fieldLocation")) document.getElementById("fieldLocation").value = u.location || "";
-
-    // Avatar name
-    const avatarName = document.getElementById("avatarName");
-    if (avatarName) avatarName.textContent = u.name || "User";
-
-    // Avatar initials
-    updateAvatarInitials(u.name, u.photo);
+  if (!token) {
+    window.location.href = "login.html";
+    return;
   }
+
+  try {
+    const res = await fetch("/api/user/profile", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      }
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error();
+
+    localStorage.setItem("hc_user", JSON.stringify(data));
+
+    document.getElementById("sidebarName").textContent = data.name;
+    document.getElementById("sidebarEmail").textContent = data.email;
+
+    document.getElementById("fieldName").value = data.name;
+    document.getElementById("fieldEmail").value = data.email;
+    document.getElementById("fieldPhone").value = data.phone || "";
+    document.getElementById("fieldLocation").value = data.location || "";
+
+    updateAvatarInitials(data.name, data.photo);
+
+  } catch {
+    window.location.href = "login.html";
+  }
+      }
 
   function updateAvatarInitials(name, photo) {
     const mainAvatar   = document.getElementById("profileAvatar");
@@ -109,7 +125,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (newPw !== confirmPw) { pwMsg.textContent = "Passwords do not match ❌"; return; }
 
     u.password = newPw;
-    localStorage.setItem("hc_user", JSON.stringify(u));
+    await fetch("/api/user/profile", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + localStorage.getItem("token")
+  },
+  body: JSON.stringify({
+    name: u.name,
+    email: u.email,
+    phone: u.phone,
+    location: u.location
+  })
+});
     pwMsg.style.color = "#0f766e";
     pwMsg.textContent = "Password updated successfully ✓";
     document.getElementById("oldPw").value = "";
@@ -196,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("logoutBtn")?.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("hc_user");
+localStorage.removeItem("token");
     window.showToast("Logged out successfully");
     setTimeout(() => { window.location.href = "index.html"; }, 900);
   });
