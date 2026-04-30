@@ -1,8 +1,7 @@
 // ==========================
 // SIGN UP
 // ==========================
-const signupForm = signupForm.addEventListener("submit", async function(e) {;
-
+const signupForm = document.querySelector(".signup-box");
 if (signupForm) {
     const msg = signupForm.querySelector(".msg");
 
@@ -23,7 +22,7 @@ if (signupForm) {
     });
 });
 
-    signupForm.addEventListener("submit", function(e) {
+    signupForm.addEventListener("submit", async function(e) {
         e.preventDefault();
 
         const inputs = signupForm.querySelectorAll("input");
